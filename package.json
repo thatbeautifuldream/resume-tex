@@ -1,0 +1,16 @@
+{
+  "name": "resume-tex",
+  "version": "1.0.0",
+  "description": "Resume in Tex",
+  "main": "index.js",
+  "scripts": {
+    "pdf": "pnpm dlx tex2pdf resume.tex"
+  },
+  "keywords": [
+    "resume",
+    "tex"
+  ],
+  "author": "Milind Mishra<milindmishra4@gmail.com>",
+  "license": "ISC",
+  "packageManager": "pnpm@10.30.3"
+}
