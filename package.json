@@ -4,7 +4,11 @@
   "description": "Resume in Tex",
   "main": "index.js",
   "scripts": {
-    "pdf": "pnpm dlx tex2pdf resume.tex"
+    "build": "pnpm pdf && pnpm clean",
+    "pdf": "latexmk -pdf -interaction=nonstopmode -halt-on-error resume.tex",
+    "watch": "latexmk -pdf -pvc -interaction=nonstopmode -halt-on-error resume.tex",
+    "preview": "open resume.pdf",
+    "clean": "latexmk -c resume.tex"
   },
   "keywords": [
     "resume",
