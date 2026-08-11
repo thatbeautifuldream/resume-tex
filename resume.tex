@@ -40,6 +40,10 @@
 
 \pdfgentounicode=1
 
+% underline all links, colour comes from hyperref urlcolor
+\let\originalhref\href
+\renewcommand{\href}[2]{\originalhref{#1}{\underline{#2}}}
+
 %-------------------------
 % Commands
 
@@ -76,7 +80,7 @@
 \small
 \href{https://wa.me/919631333128}{+91 96313 33128}
 $|$
-\href{mailto:milindmishra.work@gmail.com}{milindmishra.work@gmail.com}
+\href{mailto:hey@milindmishra.com}{hey@milindmishra.com}
 $|$
 \href{https://milindmishra.com}{milindmishra.com}
 $|$
@@ -93,77 +97,79 @@ $|$
 
 \begin{itemize}[leftmargin=0.15in, label={}]
 \small{\item{
-TypeScript, JavaScript, React, NextJS, HTML/CSS, Redux, Zustand, NodeJS, Browser Extensions, Electron, Vite, Tailwind, TanStack, ShadCN, Bundlers, Monorepos, Web Performance, Service Workers, LLMs, MCPs, RAG, Prompt Engineering, Cursor, Claude Code, PR Reviews, Mentorship
+\textbf{Languages:} TypeScript, JavaScript, Node.js, HTML, CSS \\
+\textbf{Frontend:} React, Next.js, TanStack Query, Zustand, Tailwind CSS, Radix UI, Motion, Three.js, Vite, Turborepo \\
+\textbf{Desktop and Extensions:} Electron, WXT, Chrome Extensions, Service Workers, Streamdown, Tiptap \\
+\textbf{Backend and AI:} Express, Zod, Redis, Firebase, BigQuery, Stripe, Model Context Protocol, Composio, Anthropic, OpenAI
 }}
 \end{itemize}
 
 %-----------EXPERIENCE-----------
 
-\section{Professional Experience}
+\section{Experience}
 
 \resumeSubHeadingListStart
 
 \resumeSubheading
 {Product Engineer, AI SaaS}
-{Merlin AI by Foyer}
+{\href{https://www.getmerlin.in/chat}{Merlin AI by Foyer}}
 {Feb 2025 -- Present}
 {Bengaluru, India}
 
 \resumeItemListStart
-\resumeItem{Shipped core \textbf{AI SaaS} workflows across chat, desktop coding agents, browser agents, onboarding, growth, and retention using \textbf{React, TypeScript}, and reusable frontend architecture.}
-\resumeItem{Built \textbf{ChatGPT Imports, Projects, chat history}, and prompt-driven workflows, helping users preserve context, organize conversations, and reuse AI outputs across sessions.}
-\resumeItem{Refactored design-system and component patterns across multiple product surfaces, improving accessibility, UI consistency, implementation speed, and frontend review quality.}
-\resumeItem{Owned \textbf{billing, subscription, checkout, and payment} flows, enabling pricing experiments, lifecycle state handling, customer account management, and monetization workflows.}
+\resumeItem{Shipped the Merlin AI chat platform across 130+ tagged releases, delivering ChatGPT chat imports, projects and sharing, a chat history command palette, and an auto-routing model selector}
+\resumeItem{Built Merlin Agent, an Electron and React desktop coding agent, from zero to v1.0 in 5 weeks with streaming chain-of-thought tool calls, an approval gate for privileged actions, and Composio MCP integrations}
+\resumeItem{Built the Merlin browser agent on WXT and React, shipping v8 with a shadow-DOM page overlay, pilot-mode approval gates for autonomous browsing, and per-session MCP tool selection}
+\resumeItem{Owned monetization across React surfaces and Node API endpoints, delivering Stripe guest checkout, coupon-tier and regional pricing, top-ups, team seats, and Churnkey plan-change flows}
+\resumeItem{Led a design-system revamp, migrated the chat renderer to Streamdown and the marketing site to Next.js 15 and React 19, and reviewed 250+ teammate pull requests while codifying frontend conventions}
 \resumeItemListEnd
 
 \resumeSubheading
-{Software Engineer - Influencer Management}
-{SARAL}
+{Software Engineer -- Influencer Management}
+{\href{https://www.getsaral.com/}{SARAL}}
 {Dec 2024 -- Feb 2025}
 {Bengaluru, India}
 
 \resumeItemListStart
-\resumeItem{Revamped internal analytics dashboards with \textbf{React, TypeScript}, and reusable UI patterns, giving growth and operations teams clearer visibility into customer workflows and campaign metrics.}
-\resumeItem{Built creator content submission and approval workflows, reducing manual coordination across operations, creators, and internal review teams during influencer campaigns.}
-\resumeItem{Implemented multi-select \textbf{drag-and-drop} bulk actions for campaign operations, reducing repetitive creator-management steps and improving internal workflow speed.}
+\resumeItem{Revamped internal analytics dashboards with React, TypeScript, and reusable UI patterns, giving growth and operations teams clearer visibility into customer workflows and campaign metrics}
+\resumeItem{Built creator content submission and approval workflows, reducing manual coordination across operations, creators, and internal review teams during influencer campaigns}
+\resumeItem{Implemented multi-select drag-and-drop bulk actions for campaign operations, reducing repetitive creator-management steps and improving internal workflow speed}
 \resumeItemListEnd
 
 \resumeSubheading
-{Founding Product Engineer - Candidate Assessment \& Recruitment Software}
-{Proof-of-Skill Protocol}
-{Jun 2024 -- Dec 2024}
+{Founding Product Engineer -- Candidate Assessment \& Recruitment Software}
+{\href{https://www.proofofskill.org/}{Proof-of-Skill Protocol}}
+{June 2024 -- Dec 2024}
 {Bengaluru, India}
 
 \resumeItemListStart
-\resumeItem{Built the frontend for a 3-sided assessment marketplace across validators, candidates, and recruiters, turning ambiguous 0-to-1 product requirements into launch-ready workflows.}
-\resumeItem{Designed consensus-driven validation, assessment, and review experiences with clear UX states, scalable interaction patterns, and trust-focused decision flows.}
-\resumeItem{Built real-time \textbf{recording, proctoring, API integrations}, and candidate integrity workflows to support reliable remote skill assessment and evaluation.}
-\resumeItem{Owned frontend architecture, release execution, and deployment from prototype to launch, balancing speed, maintainability, and rapid product iteration.}
+\resumeItem{Built the frontend for a 3-sided assessment marketplace across validators, candidates, and recruiters, turning ambiguous 0-to-1 product requirements into launch-ready workflows}
+\resumeItem{Designed consensus-driven validation, assessment, and review experiences with clear UX states, scalable interaction patterns, and trust-focused decision flows}
+\resumeItem{Built real-time recording, proctoring, API integrations, and candidate integrity workflows to support reliable remote skill assessment and evaluation}
 \resumeItemListEnd
 
 \resumeSubheading
-{Frontend Engineer (Lead) - AI Recruitment Software}
-{StartupHire}
+{Frontend Engineer (Lead) -- AI Recruitment Software}
+{\href{https://www.linkedin.com/company/startuphire/}{StartupHire}}
 {Aug 2023 -- Jan 2024}
 {Remote}
 
 \resumeItemListStart
-\resumeItem{Led frontend delivery for a recruiting workflow \textbf{SaaS} platform, improving candidate pipeline management, hiring operations, and recruiter productivity.}
-\resumeItem{Integrated multiple job boards and application sources into a unified recruiter dashboard, centralizing candidate intake, workflows, and pipeline visibility.}
-\resumeItem{Shipped recruiting automation and \textbf{GenAI-powered} product features from planning to release, supporting recruiter screening, outreach, and pipeline management workflows.}
+\resumeItem{Led frontend delivery for a recruiting workflow SaaS platform, improving candidate pipeline management, hiring operations, and recruiter productivity}
+\resumeItem{Integrated multiple job boards and application sources into a unified recruiter dashboard, centralizing candidate intake, workflows, and pipeline visibility}
+\resumeItem{Shipped recruiting automation and GenAI-powered product features from planning to release, supporting recruiter screening, outreach, and pipeline management workflows}
 \resumeItemListEnd
 
 \resumeSubheading
-{Frontend Engineer - Realtime Location SaaS}
-{Locus Connect (NYCU)}
-{Jul 2022 -- Jul 2023}
+{Frontend Engineer -- Realtime Location SaaS}
+{\href{https://www.linkedin.com/company/locus-connect/}{Locus Connect (NYCU)}}
+{July 2022 -- July 2023}
 {Hsinchu, Taiwan}
 
 \resumeItemListStart
-\resumeItem{Built frontend systems for a real-time \textbf{3D indoor positioning platform}, integrating IoT telemetry, location data, and interactive spatial visualization workflows.}
-\resumeItem{Developed real-time 3D indoor maps with \textbf{React, Three.js, GSAP}, state management, and rendering optimizations for smooth telemetry visualization.}
-\resumeItem{Improved indoor positioning accuracy from approximately \textbf{20cm to under 10cm} through HDOP optimization, telemetry analysis, and iterative calibration.}
-\resumeItem{Managed production infrastructure with \textbf{Docker, NGINX, load balancers}, and networking configurations to keep real-time visualization environments stable.}
+\resumeItem{Developed real-time 3D indoor maps with React, Three.js, and GSAP, rendering live IoT telemetry through state management and rendering optimizations for a 3D indoor positioning platform}
+\resumeItem{Improved indoor positioning accuracy from 20 cm to under 10 cm through HDOP optimization, telemetry analysis, and iterative calibration}
+\resumeItem{Managed production infrastructure with Docker, NGINX, load balancers, and networking configurations to keep real-time visualization environments stable}
 \resumeItemListEnd
 
 \resumeSubHeadingListEnd
@@ -178,7 +184,7 @@ TypeScript, JavaScript, React, NextJS, HTML/CSS, Redux, Zustand, NodeJS, Browser
 {National Yang Ming Chiao Tung University}
 {Hsinchu City, Taiwan}
 {Research Program, Computer Software Engineering}
-{Jul 2023}
+{July 2023}
 
 \resumeSubheading
 {Visvesvaraya Technological University}
