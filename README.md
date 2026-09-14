@@ -1,6 +1,16 @@
 # resume-tex
 
+[![skills.sh](https://skills.sh/b/thatbeautifuldream/resume-tex)](https://skills.sh/thatbeautifuldream/resume-tex)
+
 A single-page LaTeX resume. Edit `resume.tex` and build it to get `resume.pdf`.
+
+It also ships `resume-writing`, an agent skill that helps Claude Code, Codex, Cursor, and other agents write and review resumes. Install it in any project:
+
+```bash
+npx skills add thatbeautifuldream/resume-tex --skill resume-writing
+```
+
+Add `-g` to install it for all your projects. See [Agent skill](#agent-skill) for details.
 
 ## Requirements
 
@@ -57,15 +67,16 @@ pnpm pdf && pdfinfo resume.pdf | grep Pages
 
 ## Agent skill
 
-[![skills.sh](https://skills.sh/b/thatbeautifuldream/resume-tex)](https://skills.sh/thatbeautifuldream/resume-tex)
-
 `skills/resume-writing` is an [agent skill](https://skills.sh/docs) for writing and reviewing a one-page software engineering resume using the [r/EngineeringResumes wiki](https://www.reddit.com/r/EngineeringResumes/wiki/index/) standards. It works with Claude Code, Codex, Cursor, and other agents that support skills.
 
-Install it in your own project:
+Install it in your own project, or globally with `-g`:
 
 ```bash
 npx skills add thatbeautifuldream/resume-tex --skill resume-writing
+npx skills add thatbeautifuldream/resume-tex --skill resume-writing -g
 ```
+
+Pick specific agents with `-a`, for example `-a claude-code -a codex`. Once installed, ask your agent to review or edit your resume and it will load the skill.
 
 This repo has the skill installed in `.agents/skills` and `.claude/skills`, and `skills-lock.json` records it. After editing `skills/resume-writing`, refresh those installed copies:
 
