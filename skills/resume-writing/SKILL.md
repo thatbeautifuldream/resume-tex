@@ -1,6 +1,6 @@
 ---
 name: resume-writing
-description: Write, edit, and review this LaTeX resume using the r/EngineeringResumes wiki standards (US/Canada engineering resumes). Use whenever resume.tex is being changed — rewriting bullet points, adding or reordering a role, tailoring to a job description, trimming to one page, fixing skills/education/contact sections, or reviewing the resume before sending it out.
+description: Write, edit, and review a one-page software engineering resume using the r/EngineeringResumes wiki standards (US/Canada). Use whenever a resume is being changed or reviewed — rewriting bullet points, adding or reordering a role, tailoring to a job description, trimming to one page, fixing skills/education/contact sections, or checking a resume before sending it out. Covers LaTeX resumes (Jake's Resume style) in depth and applies to any format.
 ---
 
 # Resume writing (r/EngineeringResumes standards)
@@ -10,12 +10,12 @@ the [Ultimate Guide to SWE Bullet Points](https://archive.ph/Xmdqt), and
 [36 Resume Rules for Software Engineers](https://www.nicksingh.com/posts/36-resume-rules-for-software-engineers).
 They target **US/Canada** engineering resumes. They are strong defaults, not laws — say so when breaking one.
 
-This repo holds a single LaTeX resume: `resume.tex` → `resume.pdf`.
-
 ## Workflow
 
-1. **Read `resume.tex` first.** Never rewrite from scratch; edit in place, preserving the macros
-   (`\resumeSubheading`, `\resumeItem`, `\resumeItemListStart/End`).
+1. **Find and read the resume first.** Usually `resume.tex`, `main.tex`, `resume.md`, or `resume.typ`.
+   Also read the project's `AGENTS.md`/`CLAUDE.md`/`README.md` for its build command and any deliberate
+   deviations from these rules. Never rewrite from scratch; edit in place, preserving the existing macros
+   and structure (for LaTeX, see `references/latex-conventions.md`).
 2. **Ask for raw material, don't invent it.** Metrics, scale, team size, and outcomes must come from the
    user. Never fabricate numbers, users, revenue, or latency figures. If a bullet needs a number the user
    hasn't given, write the bullet without it and ask.
@@ -24,19 +24,20 @@ This repo holds a single LaTeX resume: `resume.tex` → `resume.pdf`.
 4. **Apply the rules** in `references/rules.md` (structure, sections, formatting) and
    `references/bullet-points.md` (the part people get wrong).
 5. **Build and verify one page** after every content change — this is a hard invariant, see below.
-6. **Review before finishing** with `references/review-checklist.md`. Report any rule the current file
+6. **Review before finishing** with `references/review-checklist.md`. Report any rule the resume
    still breaks rather than silently leaving it.
 
 ## The one-page invariant
 
-**This resume is always exactly one page.** Not "usually", not "unless the content is good" — always.
+**The resume is always exactly one page.** Not "usually", not "unless the content is good" — always.
 It is the single constraint that outranks every other preference here, including anything the user asked
 for earlier in the conversation. Never hand back a two-page build, and never end a turn without checking.
 
-After every change that touches content:
+After every change that touches content, build with the project's command (a `package.json` script,
+`Makefile` target, or plain `latexmk`) and check the page count:
 
 ```
-pnpm pdf && pdfinfo resume.pdf | grep Pages
+latexmk -pdf -interaction=nonstopmode -halt-on-error resume.tex && pdfinfo resume.pdf | grep Pages
 ```
 
 If it reads `Pages: 2`, the work is not done. Fix it in this order, stopping as soon as it fits:
@@ -58,7 +59,7 @@ If the user asks for something that doesn't fit, add it, cut the weakest thing t
 and tell them explicitly what you cut and why — don't silently drop it, and don't silently overflow.
 
 The only exception is 10+ years of experience or a genuine senior/staff+ profile, where two pages are
-defensible. That is not the case for this resume today; treat it as one page until the user says otherwise.
+defensible. Treat the resume as one page unless the user says otherwise.
 
 ## The rules that matter most
 
@@ -68,9 +69,9 @@ skimmability first, aesthetics never.
 **Layout.** Single column. No icons, images, graphics, or multiple columns. Bullet points, not paragraphs.
 Comma-separated skills. Black text, 10.5pt+, no justified text, margins ≥ 0.4in. One page.
 
-**Section order** (this resume is a mid-level engineer with full-time experience):
-`Experience > Skills > Education` or `Skills > Experience > Education`. Students/new grads lead with
-Education. No summary/objective unless senior/staff+, career changer, or explaining a gap. No references section.
+**Section order.** Engineers with full-time experience: `Experience > Skills > Education` or
+`Skills > Experience > Education`. Students/new grads lead with Education. No summary/objective unless
+senior/staff+, career changer, or explaining a gap. No references section.
 
 **Bullet points.** Each one starts with a strong past-tense action verb and follows STAR / XYZ / CAR:
 what you built, the technical challenge, the impact. 1–2 lines, aim for one sentence, best bullet first,
@@ -91,20 +92,15 @@ nationality, religion).
 **Dates.** `Mar 2022 – Present`, en dash with spaces around it (`--` in LaTeX), right-aligned, no abbreviated
 years, no digit months, proper month abbreviations (Jan, Feb, Mar, Apr, May, June, July, Aug, Sept, Oct, Nov, Dec).
 
-## Known deviations in this resume
+## Deliberate deviations
 
-Flag these when relevant; don't "fix" them unprompted — some are deliberate:
-
-- `\textbf{}` emphasis inside bullet points — the wiki says don't bold keywords within bullets (distracting).
-- Colored hyperlinks (`RoyalBlue` in the `hyperref` setup) — the wiki wants plain black, print-safe text.
-- Phone number and LinkedIn/X links in the header — allowed, just not recommended.
-- Skills list contains soft/process items (PR Reviews, Mentorship) and editors (Cursor, Claude Code), which
-  the wiki excludes from a skills section.
-- Most bullets carry no metric. The indoor-positioning accuracy bullet is the model to imitate.
+Resumes often break a rule on purpose — colored links, bold keywords inside bullets, a phone number in the
+header. If the project documents its deviations (in `AGENTS.md`, `CLAUDE.md`, or the README), flag them when
+relevant but don't "fix" them unprompted. If it doesn't, point out deviations once and ask before changing them.
 
 ## References
 
 - `references/rules.md` — full rule set by section (formatting, contact, experience, education, skills, projects, seniority).
 - `references/bullet-points.md` — STAR/XYZ/CAR, action verbs, banned words, annotated good vs bad bullets, sample bullets.
-- `references/latex-conventions.md` — this repo's macros, build/watch commands, one-page tactics, LaTeX escaping.
+- `references/latex-conventions.md` — Jake's Resume macros, build commands, one-page tactics, LaTeX escaping.
 - `references/review-checklist.md` — final pass, run it before declaring the resume done.

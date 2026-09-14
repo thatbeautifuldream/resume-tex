@@ -4,7 +4,7 @@ Run before declaring the resume done. Report every failure, even ones you were t
 
 ## Build — do this first, and again last
 
-- [ ] `pnpm pdf` succeeds with no errors
+- [ ] The project's build command succeeds with no errors
 - [ ] **`pdfinfo resume.pdf | grep Pages` → 1.** Hard invariant. A 2-page build means the task is
       unfinished — cut content per the SKILL.md order and rebuild. Never report done on 2 pages.
 - [ ] Geometry untouched: no font below 10.5pt, no margins below 0.4in, no new negative `\vspace`

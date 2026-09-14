@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "resume-writing": {
+      "source": ".",
+      "sourceType": "local",
+      "computedHash": "48e24079de4e9708db52ada9921eb5caf33ea1353292740a3b678dea1127a786"
+    }
+  }
+}
