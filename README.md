@@ -1,10 +1,10 @@
 # resume-tex
 
-[![skills.sh](https://skills.sh/b/thatbeautifuldream/resume-tex)](https://skills.sh/thatbeautifuldream/resume-tex)
+[![skills.sh](https://skills.sh/b/thatbeautifuldream/resume-tex)](https://www.skills.sh/thatbeautifuldream/resume-tex/resume-writing)
 
 A single-page LaTeX resume. Edit `resume.tex` and build it to get `resume.pdf`.
 
-It also ships `resume-writing`, an agent skill that helps Claude Code, Codex, Cursor, and other agents write and review resumes. Install it in any project:
+It also ships `resume-writing`, an agent skill that helps Claude Code, Codex, Cursor, and other agents write and review resumes. View it on [skills.sh](https://www.skills.sh/thatbeautifuldream/resume-tex/resume-writing), or install it in any project:
 
 ```bash
 npx skills add thatbeautifuldream/resume-tex --skill resume-writing
